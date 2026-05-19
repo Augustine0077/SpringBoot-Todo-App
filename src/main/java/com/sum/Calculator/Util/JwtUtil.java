@@ -29,15 +29,17 @@ public class JwtUtil {
                 .signWith(secretKey)
                 .compact();
     }
-
+public String extractEmial(String token){
+        return  Jwts.parser()
+                .verifyWith(secretKey)
+                .build()
+                .parseSignedClaims(token)
+                .getPayload()
+                .getSubject();
+}
     public boolean validateJwtToken(String token) {
         try {
-            Jwts.parser()
-                    .verifyWith(secretKey)
-                    .build()
-                    .parseSignedClaims(token)
-                    .getPayload()
-                    .getSubject();
+                extractEmial(token);
             return true;
         } catch (JwtException exception) {
             return false;
