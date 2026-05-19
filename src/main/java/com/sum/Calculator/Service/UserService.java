@@ -1,11 +1,10 @@
-package com.sum.Calculator.Service;
+package com.sum.Calculator.service;
 
-import com.sum.Calculator.Entity.User;
-import com.sum.Calculator.Repo.UserRepository;
+import com.sum.Calculator.models.User;
+import com.sum.Calculator.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @org.springframework.stereotype.Service
-
 public class UserService {
     @Autowired
     private UserRepository userRepository;
